@@ -1,0 +1,23 @@
+{
+  "name": "bercik999/nymph",
+  "description": "diet calculator",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Hubert",
+      "email": "bercik999@gmail.com"
+    }
+  ],
+  "require": {
+    "phpunit/phpunit": "^5.3",
+    "phpspec/phpspec": "^2.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "src"
+    }
+  }
+
+}
