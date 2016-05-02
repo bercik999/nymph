@@ -20,7 +20,6 @@ class BodyDataFactory
         $this->dateToCalculateAge = $dateToCalculateAge;
     }
 
-
     public function create(
         float $weight,
         float $height,
@@ -35,6 +34,5 @@ class BodyDataFactory
         $BMR = $calc->calculate($weight, $height, $age, $sex);
         return new BodyData($weight, $height, $bodyFatPercentage, $waistToHipsRatio, $sex, $BMR, $BMR * $activityRatio);
     }
-
 
 }
