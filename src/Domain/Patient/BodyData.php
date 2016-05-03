@@ -29,41 +29,36 @@ class BodyData
      */
     protected $sex;
     /**
-     * @var float
+     * @var \DateTime
      */
-    protected $baseMetabolicRate;
-    /**
-     * @var float
-     */
-    protected $totalMetabolicRate;
-
+    protected $birthDate;
     /**
      * BodyData constructor.
      * @param float $weight
      * @param float $height
+     * @param int $sex
+     * @param \DateTime $birthDate
      * @param float $bodyFatPercentage
      * @param float $waistHipsRatio
-     * @param int $sex
-     * @param float $baseMetabolicRate
-     * @param float $totalMetabolicRate
      */
     public function __construct(
         float $weight = null,
         float $height = null,
-        float $bodyFatPercentage = null,
-        float $waistHipsRatio = null,
         int $sex = null,
-        float $baseMetabolicRate = null,
-        float $totalMetabolicRate = null
+        \DateTime $birthDate = null,
+        float $bodyFatPercentage = null,
+        float $waistHipsRatio = null
     ) {
         $this->weight = $weight;
         $this->height = $height;
+        $this->sex = $sex;
+        $this->birthDate = $birthDate;
         $this->bodyFatPercentage = $bodyFatPercentage;
         $this->waistHipsRatio = $waistHipsRatio;
-        $this->sex = $sex;
-        $this->baseMetabolicRate = $baseMetabolicRate;
-        $this->totalMetabolicRate = $totalMetabolicRate;
     }
 
-
+    public function hasBasicData()
+    {
+        return $this->weight && $this->height && !is_null($this->sex) && $this->birthDate;
+    }
 }
