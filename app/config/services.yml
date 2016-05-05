@@ -4,6 +4,16 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    nymph.infrastructure.patient_repo:
+        class: Infrastructure\Repos\PatientRepo
+    nymph.command.create_patient:
+        class: Application\Handlers\CreatePatientCommandHandler
+        arguments:
+          - '@nymph.infrastructure.patient_repo'
+        tags:
+          - { name: tactician.handler, command: Application\Commands\CreatePatientCommand }
+
+    nymph.command_bus:
+        class: Application\CommandBus
+        arguments:
+          - '@tactician.commandbus'
