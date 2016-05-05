@@ -20,7 +20,7 @@ class MetabolicNeeds
      * @param int $BMR
      * @param int $TMR
      */
-    public function __construct(int $BMR, int $TMR)
+    public function __construct(int $BMR = null, int $TMR = null)
     {
         $this->BMR = $BMR;
         $this->TMR = $TMR;
