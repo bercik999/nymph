@@ -16,31 +16,20 @@ class BodyDataSpec extends ObjectBehavior
 
     public function it_is_initializable_with_all_args()
     {
-        $this->beConstructedWith(10, 30, 0.2, 2);
+        $this->beConstructedWith(10, 30, 0.2, new \DateTime(), 0.4,1);
         $this->shouldHaveType(BodyData::class);
     }
 
-    public function it_is_initializable_without_weight()
+    public function it_should_have_basic_data_if_needed()
     {
-        $this->beConstructedWith(null, 30, 0.2, 2);
+        $this->beConstructedWith(100, 30, 0.2, new \DateTime());
         $this->shouldHaveType(BodyData::class);
+        $this->hasBasicData()->shouldReturn(true);
     }
 
-    public function it_is_initializable_without_height()
+    public function it_should_not_have_basic_data()
     {
-        $this->beConstructedWith(100, null, 0.2, 2);
         $this->shouldHaveType(BodyData::class);
-    }
-
-    public function it_is_initializable_without_body_fat()
-    {
-        $this->beConstructedWith(100, 30, null, 0.2);
-        $this->shouldHaveType(BodyData::class);
-    }
-
-    public function it_is_initializable_without_whr()
-    {
-        $this->beConstructedWith(100, 30, 0.2, null);
-        $this->shouldHaveType(BodyData::class);
+        $this->hasBasicData()->shouldReturn(false);
     }
 }

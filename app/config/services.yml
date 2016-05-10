@@ -1,0 +1,19 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    nymph.infrastructure.patient_repo:
+        class: Infrastructure\Repos\PatientRepo
+    nymph.command.create_patient:
+        class: Application\Handlers\CreatePatientCommandHandler
+        arguments:
+          - '@nymph.infrastructure.patient_repo'
+        tags:
+          - { name: tactician.handler, command: Application\Commands\CreatePatientCommand }
+
+    nymph.command_bus:
+        class: Application\CommandBus
+        arguments:
+          - '@tactician.commandbus'

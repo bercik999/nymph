@@ -16,7 +16,7 @@ interface PatientRepoInterface
      * @param Patient $patient
      * @return void
      */
-    public function store(Patient $patient);
+    public function save(Patient $patient);
 
     /**
      * @param string $uuid
