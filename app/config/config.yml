@@ -72,4 +72,15 @@ tactician:
         default:
             middleware:
                 - tactician.middleware.locking
+                - nymph.application.logging_middleware
                 - tactician.middleware.command_handler
+
+doctrine_mongodb:
+    connections:
+        default:
+            server: mongodb://localhost:27017
+            options: {}
+    default_database: nymph
+    document_managers:
+        default:
+            auto_mapping: true
