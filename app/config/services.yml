@@ -17,3 +17,13 @@ services:
         class: Application\CommandBus
         arguments:
           - '@tactician.commandbus'
+
+    nymph.application.logging_middleware:
+        class: Application\LoggingMiddleware
+        arguments:
+          - '@nymph.commandlogger'
+
+    nymph.commandlogger:
+        class: Infrastructure\MongoCommandLogger
+        arguments:
+          - '@doctrine_mongodb.odm.default_connection'

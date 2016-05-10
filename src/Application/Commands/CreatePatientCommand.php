@@ -19,4 +19,9 @@ class CreatePatientCommand
     public $waistHipsRatio;  
     public $activityRatio;  
     public $notes;
+
+    public function toArray()
+    {
+        return (array) $this;
+    }
 }
