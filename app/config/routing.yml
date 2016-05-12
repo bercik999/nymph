@@ -1,5 +1,3 @@
-home:
-    path: /
-    defaults: { _controller: AppBundle:Main:index }
-    options:
-        expose: true
+patient_creation:
+    path: /patient/new
+    defaults: { _controller: AppBundle:Patient:new }

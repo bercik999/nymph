@@ -27,3 +27,6 @@ services:
         class: Infrastructure\MongoCommandLogger
         arguments:
           - '@doctrine_mongodb.odm.default_connection'
+
+    nymph.uuid_generator:
+        class: Infrastructure\IdProvider
